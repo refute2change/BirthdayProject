@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Textbox Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>Simple Textbox Website</h1>
+    <p>Type something into the textbox below. Your text will appear in the live preview.</p>
+
+    <form id="demoForm" onsubmit="return false" aria-describedby="helper">
+      <label for="textInput">Your text</label>
+      <input id="textInput" class="input" type="text" placeholder="Type anything..." autocomplete="off" aria-describedby="count helper" />
+
+      <div class="meta">
+        <div id="helper">Press Enter to copy to preview, or just keep typing for live preview.</div>
+        <div id="count" aria-live="polite">0 characters</div>
+      </div>
+
+      <div class="row">
+        <button type="button" id="copyBtn">Copy to clipboard</button>
+        <button type="button" id="clearBtn" title="Clear the textbox">Clear</button>
+      </div>
+
+      <div class="preview" id="preview" aria-live="polite">
+        <span>Live preview will appear here…</span>
+      </div>
+    </form>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
