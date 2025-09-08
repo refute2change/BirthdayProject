@@ -11,7 +11,7 @@ function updatePreview() {
 
 function respond() {
     const value = input.value;
-    fetch('data.json')
+    fetch('data/data.json')
         .then(response => response.json())
         .then(data => {
             if (value in data) {
