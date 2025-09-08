@@ -16,6 +16,11 @@ function respond() {
         .then(data => {
             if (value in data) {
                 preview.innerHTML = data[value];
+                fetch('../log/wordfound.txt', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'text/plain' },
+                  body: value
+                });
             } else {
                 preview.innerHTML = '<span>No matching key found.</span>';
             }
