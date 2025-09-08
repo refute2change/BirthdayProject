@@ -16,11 +16,13 @@ function respond() {
         .then(data => {
             if (value in data) {
                 preview.innerHTML = data[value];
-                fetch('../log/wordfound.txt', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'text/plain' },
+                fetch("YOUR_GOOGLE_SCRIPT_URL", {
+                  method: "POST",
                   body: value
-                });
+                })
+                .then(res => res.text())
+                .then(txt => console.log(txt))
+                .catch(err => console.error(err));
             } else {
                 preview.innerHTML = '<span>No matching key found.</span>';
             }
