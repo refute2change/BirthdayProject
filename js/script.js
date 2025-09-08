@@ -16,7 +16,7 @@ function respond() {
         .then(data => {
             if (value in data) {
                 preview.innerHTML = data[value];
-                fetch("YOUR_GOOGLE_SCRIPT_URL", {
+                fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
                   method: "POST",
                   body: value
                 })
