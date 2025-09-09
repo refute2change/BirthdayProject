@@ -43,7 +43,7 @@ function respond() {
         })
         .catch(error => {
             console.error('Error loading JSON:', error);
-            preview.innerHTML = '<span>Error loading data.</span>';
+            preview.innerHTML = error;
         });
 }
 
