@@ -30,7 +30,7 @@ function respond() {
                 preview.innerHTML = data[value];
                 fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
                   method: "POST",
-                  body: JSON.stringify({ "value": value, "ip": ipHolder.textContent })
+                  body: JSON.stringify({ "Word": value, "By": ipHolder.textContent })
                 })
                 .then(res => res.text())
                 .then(txt => console.log(txt))
