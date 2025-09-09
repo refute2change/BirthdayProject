@@ -10,6 +10,17 @@ function updatePreview() {
   count.textContent = `${value.length} ${value.length === 1 ? 'character' : 'characters'}`;
 }
 
+function fetchip() {
+  fetch("https://api.ipify.org?format=json")
+  .then(res => res.json())
+  .then(data => {
+    let ip = data["ip"];
+    console.log(ip);
+    ipHolder.textContent = ip;
+  })
+  .catch(err => console.error(err));
+}
+
 function respond() {
     const value = input.value;
     fetch('data/data.json')
@@ -61,11 +72,4 @@ clearBtn.addEventListener('click', () => {
 
 // Initialize state
 updatePreview();
-fetch("https://api.ipify.org?format=json")
-.then(res => res.json())
-.then(data => {
-  let ip = data["ip"];
-  console.log(ip);
-  ipHolder.textContent = ip;
-})
-.catch(err => console.error(err));
+fetchip();
