@@ -3,6 +3,7 @@ const preview = document.getElementById('preview');
 const count = document.getElementById('count');
 const copyBtn = document.getElementById('copyBtn');
 const clearBtn = document.getElementById('clearBtn');
+const ipHolder = document.getElementById('ipHolder');
 
 function updatePreview() {
   const value = input.value;
@@ -16,16 +17,9 @@ function respond() {
         .then(data => {
             if (value in data) {
                 preview.innerHTML = data[value];
-                fetch("https://api.ipify.org?format=json")
-                .then(res => res.json())
-                .then(data => {
-                  let ip = data["ip"];
-                  console.log(ip);
-                })
-                .catch(err => console.error("lmao"));
                 fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
                   method: "POST",
-                  body: JSON.stringify({ "value": value, "ip": "hehe" })
+                  body: JSON.stringify({ "value": value, "ip": ipHolder.textContent })
                 })
                 .then(res => res.text())
                 .then(txt => console.log(txt))
@@ -67,3 +61,11 @@ clearBtn.addEventListener('click', () => {
 
 // Initialize state
 updatePreview();
+fetch("https://api.ipify.org?format=json")
+.then(res => res.json())
+.then(data => {
+  let ip = data["ip"];
+  console.log(ip);
+  ipHolder.textContent = ip;
+})
+.catch(err => console.error("lmao"));
