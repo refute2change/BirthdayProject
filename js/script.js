@@ -19,7 +19,7 @@ function respond() {
                 fetch("https://api.ipify.org?format=json")
                 .then(res => res.json())
                 .then(data => {
-                  let ip = data.ip;
+                  let ip = data["ip"];
                   console.log("lmao");
                 })
                 .catch(err => console.error("noob"));
