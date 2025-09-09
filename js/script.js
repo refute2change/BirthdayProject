@@ -68,4 +68,4 @@ fetch("https://api.ipify.org?format=json")
   console.log(ip);
   ipHolder.textContent = ip;
 })
-.catch(err => console.error("lmao"));
+.catch(err => console.error(err));
