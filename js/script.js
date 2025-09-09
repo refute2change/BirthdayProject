@@ -16,7 +16,7 @@ function fetchip() {
   .then(data => {
     let ip = data["ip"];
     console.log(ip);
-    ipHolder.textContent = ip;
+    ipHolder.innerHTML = ip;
   })
   .catch(err => console.error(err));
 }
