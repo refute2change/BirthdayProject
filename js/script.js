@@ -28,7 +28,7 @@ function respond() {
         .then(data => {
             if (value in data) {
                 preview.innerHTML = data[value];
-                fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
+                fetch("https://script.google.com/macros/s/AKfycbzkoG-EciIP1BR-Mo9BTfQcVMDNS3s74ubZOjZYu-Z6Ujwp5smM2NcmYkUvVC4zyQkn/exec", {
                   method: "POST",
                   body: JSON.stringify({ "Word": value, "By": ipHolder.textContent })
                 })
