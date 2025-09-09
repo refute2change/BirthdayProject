@@ -16,13 +16,13 @@ function respond() {
         .then(data => {
             if (value in data) {
                 preview.innerHTML = data[value];
-                // fetch("https://api.ipify.org?format=json")
-                // .then(res => res.json())
-                // .then(data => {
-                //   let ip = data["ip"];
-                //   console.log(ip);
-                // })
-                // .catch(err => console.error("noob"));
+                fetch("https://api.ipify.org?format=json")
+                .then(res => res.json())
+                .then(data => {
+                  let ip = data["ip"];
+                  console.log(ip);
+                })
+                .catch(err => console.error("noob"));
                 fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
                   method: "POST",
                   body: value
