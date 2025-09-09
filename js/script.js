@@ -16,13 +16,21 @@ function respond() {
         .then(data => {
             if (value in data) {
                 preview.innerHTML = data[value];
-                fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
-                  method: "POST",
-                  body: value
-                })
-                .then(res => res.text())
-                .then(txt => console.log(txt))
-                .catch(err => console.error(err));
+                fetch("https://api.ipify.org?format=json")
+                .then(res => res.json())
+                .then(data => {
+                  let ip = data.ip;
+                  fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
+                    method: "POST",
+                    body: JSON.stringify({ word: "hello", ip: ip }),
+                    headers: { "Content-Type": "application/json" }
+                  })
+                  .then(res => res.text())
+                  .then(txt => console.log(txt))
+                  .catch(err => console.error(err));
+                });
+
+                
             } else {
                 preview.innerHTML = '<span>No matching key found.</span>';
             }
