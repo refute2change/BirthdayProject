@@ -20,16 +20,18 @@ function respond() {
                 .then(res => res.json())
                 .then(data => {
                   let ip = data["ip"];
-                  console.log("lmao");
+                    fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ "Word": value, "By": ip })
+                    })
+                    .then(res => res.text())
+                    .then(txt => console.log(txt))
+                    .catch(err => console.error(err));
+                  console.log(ip);
                 })
                 .catch(err => console.error("noob"));
-                fetch("https://script.google.com/macros/s/AKfycbxoe44rpXhzPVNHsRN6_ZgU-lnLgO2HGdQgwdIKaWAfPYLw5Oed3h5Ub7rhVkQ_vfsI/exec", {
-                  method: "POST",
-                  body: value
-                })
-                .then(res => res.text())
-                .then(txt => console.log(txt))
-                .catch(err => console.error(err));
+                
             } else {
                 preview.innerHTML = '<span>No matching key found.</span>';
             }
